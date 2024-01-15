@@ -113,7 +113,7 @@ def game_loop():
                 text = font.render(str(counter), True, (0, 128, 0))
                 if counter == 0:
                     pygame.time.set_timer(timer_event, 0)
-                    screen.blit(game_over, (0, 0))
+                    highscore.append(score_value)
                     pygame.time.wait(3000)
                     running = False
         show_timer(text_x, text_y)
@@ -182,10 +182,11 @@ def show_highscore():
     run = True
     while run:
         screen.fill((93, 151, 251))
-        for element in highscore:
-            High_score = font.render("Score : " +
-                                     str(highscore[element]), True, (255, 255, 255))
-            screen.blit(High_score, (500, 50 + (element * 10)))
+        scoreee = font.render("Score", True, (255, 255, 255))
+        screen.blit(scoreee, (300, 5))
+        for element in range(len(highscore)):
+            High_score = font.render(str(highscore[element]), True, (255, 255, 255))
+            screen.blit(High_score, (350, 80 + (element * 100)))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -200,7 +201,7 @@ def main_menu():
     score_img = pygame.image.load('customer-satisfaction_9375636.png')
     start = button.Button(250, 50, start_img)
     exit = button.Button(250, 300, exit_img)
-    score = button.Button(600, 500, score_img)
+    score = button.Button(680, 500, score_img)
     run = True
 
     while run:
@@ -209,7 +210,7 @@ def main_menu():
         exit.draw()
         score.draw()
         if start.draw():
-            game_loop()
+
             if not game_loop():
                 game_over()
         if exit.draw():
