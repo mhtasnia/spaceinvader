@@ -1,7 +1,6 @@
 import math
 import pygame
 import random
-
 import button
 
 # this init line is mandatory
