@@ -55,7 +55,7 @@ def game_loop():
     enemy_img = pygame.image.load('spaceship (1).png')
     enemy_x = random.randint(0, 730)
     enemy_y = 50
-    enemy_x_change = 13
+    enemy_x_change = 15
     enemy_y_change = 10
 
     def enemy(x, y):
